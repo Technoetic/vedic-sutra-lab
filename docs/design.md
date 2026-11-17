@@ -15,7 +15,7 @@
 
 ## 웹앱6원칙
 
-책임별 JS·CSS레이어·Screen/Service클래스·비동기JSONloading/error/retry/취소경합·hash단일진입라우팅·열린탭배포갱신보호. HTML로드build와신선한version.json의동일성을비교한다. 새버전/롤백감지후다음깨끗한이동에서query를바꿔full-document이동,dirty/save중이면입력보존.해시변경만으로full-document라고주장하지않는다.내용해시자산과기존자산보존빌드.로컬서버no-cacheHTML/no-storeversion/data와정적404.
+HTML에서 읽은 빌드 식별자와 최신 version.json을 비교한다. 새 버전과 롤백 모두 다음 이동에서 전체 문서를 새로 받는다. 예제 수정 여부는 이동을 막지 않는다. 사용자가 이미 저장 버튼을 눌렀다면 전체 문서를 떠나기 전에 해당 쓰기만 마친다. 같은 빌드에서는 브라우저의 뒤로·앞으로 가기와 수트라 간 이동이 저장과 독립적으로 작동한다. 정적 파일은 내용 해시로 구분하고 이전 빌드가 참조하는 해시 자산도 보존한다.
 
 ## 모듈 계약
 
@@ -27,7 +27,7 @@
 
 `src/js/ui/diagrams.js` export `renderDiagram(diagram)` ->HTML문자열. UI는model필드를추정하지않고지원하지않는kind는텍스트fallback.
 
-`src/js/services/VersionService.js`: constructor `{loadedBuild,versionURL,fetcher}`, async `check()` -> `{changed,build?,error?}`; async `beforeNavigate(target,{isDirty,isSaving,commit,notify,replace=false})` -> `'blocked'|'document'|'spa'`. 비동기 확인 뒤 dirty·saving 상태를 다시 읽는다. 백그라운드 검사는 새로고침하지 않는다. 전체 문서 이동에는 `_build`와 고유한 `_nav` query를 사용한다. 잘못된 버전 응답에도 현재 앱을 사용할 수 있다. 기본 fetch는 전역 객체에 바인딩한다.
+`src/js/services/VersionService.js`: constructor `{loadedBuild,versionURL,fetcher}`, async `check()` -> `{changed,build?,error?}`; async `beforeNavigate(target,{commit,finishSave,replace=false})` -> `'document'|'spa'`. 다른 빌드로 이동할 때만 기존 명시적 저장을 기다린다. 백그라운드 검사는 새로고침하지 않는다. 전체 문서 이동에는 `_build`와 고유한 `_nav` query를 사용한다. 잘못된 버전 응답에도 현재 앱을 사용할 수 있다.
 
 `src/js/services/ProgressService.js`: constructor(storage), `load()`, async `save(id,values)`, `visited` Set, `values` object, `saving` boolean, `error` string|null. 손상된 저장값·비공개 브라우저의 저장 예외를 처리한다. 현재 편집값과 명시적으로 저장한 값을 구분한다.
 

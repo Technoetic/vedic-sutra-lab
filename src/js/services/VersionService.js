@@ -2,7 +2,6 @@ import { freshURL } from '../shared/freshURL.js';
 let navigationSequence = 0;
 
 const messageOf = (error) => error instanceof Error ? error.message : String(error || 'Version check failed');
-const active = (value) => typeof value === 'function' ? Boolean(value()) : Boolean(value);
 
 export class VersionService {
   constructor({ loadedBuild, versionURL, fetcher = globalThis.fetch.bind(globalThis), timeoutMs = 1200 }) {
@@ -42,16 +41,10 @@ export class VersionService {
     }
   }
 
-  async beforeNavigate(target, { isDirty, isSaving, commit, notify = () => {}, replace = false } = {}) {
+  async beforeNavigate(target, { commit, finishSave, replace = false } = {}) {
     const result = await this.check();
-    // These callbacks must be read after the request, since editing or saving can start while it is pending.
-    const dirty = active(isDirty);
-    const saving = active(isSaving);
-    if (dirty || saving) {
-      notify(saving ? '저장이 끝난 뒤 다시 이동해 주세요.' : '변경한 입력을 먼저 저장해 주세요.');
-      return 'blocked';
-    }
     if (!result.changed) return 'spa';
+    if (finishSave) await finishSave();
 
     const destination = new URL(target);
     destination.searchParams.set('_build', result.build);

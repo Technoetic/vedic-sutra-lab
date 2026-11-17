@@ -15,11 +15,8 @@ await waitFor(()=>document.documentElement.dataset.loadedBuild==='qa-A'&&documen
 state=await page.evaluate(()=>({build:__SUTRA_APP__.loadedBuild,token:__SUTRA_APP__.token,hash:location.hash}));results.push({check:'B-to-A-rollback',pass:state.token!==token&&state.hash==='#/sutra/05',...state});token=state.token;
 
 await page.evaluate(async()=>{const i=document.querySelector('[data-control="c"]');i.value='2';i.dispatchEvent(new Event('input',{bubbles:true}));await fetch('/__qa/state',{method:'POST',body:JSON.stringify({build:'B'})});document.querySelector('[href="#/sutra/01"][data-route]').click();});
-await waitFor(()=>!document.querySelector('#update-notice').hidden);
-state=await page.evaluate(()=>({build:__SUTRA_APP__.loadedBuild,token:__SUTRA_APP__.token,hash:location.hash,dirty:__SUTRA_APP__.screen.dirty,value:__SUTRA_APP__.screen.values.c}));results.push({check:'dirty-input-protected',pass:state.token===token&&state.build==='qa-A'&&state.hash==='#/sutra/05'&&state.value===2&&state.dirty,...state});
-await page.evaluate(()=>document.querySelector('[data-save-go]').click());
 await waitFor(()=>document.documentElement.dataset.loadedBuild==='qa-B'&&document.documentElement.dataset.sutra==='01'&&document.documentElement.dataset.ready==='1');
-state=await page.evaluate(()=>({build:__SUTRA_APP__.loadedBuild,token:__SUTRA_APP__.token,hash:location.hash,saved:__SUTRA_APP__.progress.values['05']?.c}));results.push({check:'saved-input-then-intended-document',pass:state.token!==token&&state.saved===2&&state.hash==='#/sutra/01',...state});
+state=await page.evaluate(()=>({build:__SUTRA_APP__.loadedBuild,token:__SUTRA_APP__.token,hash:location.hash,saved:__SUTRA_APP__.progress.values['05']?.c}));results.push({check:'unsaved-example-can-leave-without-prompt-or-persistent-save',pass:state.token!==token&&state.saved===undefined&&state.hash==='#/sutra/01',...state});
 
 await page.evaluate(async()=>{await fetch('/__qa/state',{method:'POST',body:JSON.stringify({build:'A'})});});
 await page.goto('http://127.0.0.1:8797/');await waitFor(()=>document.documentElement.dataset.ready==='1');
@@ -29,7 +26,7 @@ await waitFor(()=>document.documentElement.dataset.loadedBuild==='qa-B'&&documen
 state=await page.evaluate(()=>({build:__SUTRA_APP__.loadedBuild,token:__SUTRA_APP__.token,hash:location.hash}));results.push({check:'A-HTML-before-server-B-version-response',pass:state.token!==token&&state.build==='qa-B'&&state.hash==='#/sutra/06',...state});
 
 await page.evaluate(async()=>{await fetch('/__qa/state',{method:'POST',body:JSON.stringify({build:'A',delay:0})});dispatchEvent(new Event('focus'));});
-await waitFor(()=>!document.querySelector('#update-notice').hidden);
+await waitFor(()=>document.documentElement.dataset.updateAvailable==='true');
 state=await page.evaluate(()=>({build:__SUTRA_APP__.loadedBuild,token:__SUTRA_APP__.token,hash:location.hash}));const backgroundToken=state.token;
 results.push({check:'focus-handler-does-not-background-reload',pass:state.build==='qa-B',...state,lifecycle:'Explicit focus event dispatch; native BFCache not claimed'});
 await page.evaluate(()=>document.querySelector('[href="#/about"][data-route]').click());

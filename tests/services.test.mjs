@@ -94,7 +94,7 @@ test('version checks time out and abort the request', async () => {
 test('an unchanged clean navigation stays in the SPA without committing a document', async () => {
   let commits = 0;
   assert.equal(await version('build-A').beforeNavigate('https://example.test/lab/#/about', {
-    commit: () => { commits += 1; }, isDirty: () => false, isSaving: () => false,
+    commit: () => { commits += 1; },
   }), 'spa');
   assert.equal(commits, 0);
 });
@@ -126,46 +126,23 @@ test('a background check never initiates a document transition', async () => {
   assert.equal(service.loadedBuild, 'build-A');
 });
 
-for (const state of ['dirty', 'saving']) {
-  test(`navigation rechecks ${state} state after the version request resolves`, async () => {
-    const pending = deferred();
-    let dirty = false;
-    let saving = false;
-    let commits = 0;
-    const notices = [];
-    const service = version('unused', { fetcher: () => pending.promise });
-    const navigation = service.beforeNavigate('https://example.test/lab/#/sutra/02', {
-      isDirty: () => dirty, isSaving: () => saving,
-      commit: () => { commits += 1; }, notify: (message) => notices.push(message),
-    });
-    if (state === 'dirty') dirty = true;
-    else saving = true;
-    pending.resolve(response({ buildId: 'build-B' }));
-    assert.equal(await navigation, 'blocked');
-    assert.equal(commits, 0);
-    assert.equal(notices.length, 1);
-    assert.equal(typeof notices[0], 'string');
+test('a new build finishes an explicit save before leaving automatically', async () => {
+  const started = deferred(), saved = deferred(), commits = [];
+  const navigation = version('build-B').beforeNavigate('https://example.test/lab/#/sutra/02', {
+    finishSave: () => { started.resolve(); return saved.promise; }, commit: url => commits.push(url),
   });
-}
-
-test('dirty inputs block ordinary navigation even when the version request fails', async () => {
-  let notices = 0;
-  const service = version('unused', { fetcher: async () => { throw new Error('offline'); } });
-  const outcome = await service.beforeNavigate('https://example.test/lab/#/about', {
-    isDirty: () => true, isSaving: () => false,
-    commit: () => assert.fail('dirty inputs must remain in the document'),
-    notify: () => { notices += 1; },
-  });
-  assert.equal(outcome, 'blocked');
-  assert.equal(notices, 1);
+  await started.promise;
+  assert.equal(commits.length, 0);
+  saved.resolve();
+  assert.equal(await navigation, 'document');
+  assert.equal(new URL(commits[0]).hash, '#/sutra/02');
 });
 
-test('an unchanged version still blocks navigation while a save is in flight', async () => {
-  const service = version('build-A');
-  assert.equal(await service.beforeNavigate('https://example.test/lab/#/about', {
-    isSaving: () => true, notify: () => {},
-    commit: () => assert.fail('an in-flight save must not lose its document'),
-  }), 'blocked');
+test('an ordinary lesson change never waits for local persistence', async () => {
+  assert.equal(await version('build-A').beforeNavigate('https://example.test/lab/#/about', {
+    finishSave: () => assert.fail('SPA visits do not unload the save queue'),
+    commit: () => assert.fail('same build stays in the document'),
+  }), 'spa');
 });
 
 test('progress starts empty and explicitly saved values survive a reload', async () => {

@@ -3,6 +3,8 @@ import subprocess,sys,json,re,base64,shutil,os
 root=next(p for p in Path(__file__).resolve().parents if (p/'package.json').is_file())
 script=Path(sys.argv[1]);out=root/'test-results'/sys.argv[2];out.parent.mkdir(parents=True,exist_ok=True)
 code=script.read_text(encoding='utf-8')
+if len(sys.argv)>3:code=code.replace('/*qa-target*/null',json.dumps(sys.argv[3]))
+if len(sys.argv)>4:code=code.replace('/*qa-build*/null',json.dumps(sys.argv[4]))
 cli=os.environ.get('ASIDE_CLI') or shutil.which('aside.exe') or shutil.which('aside')
 if not cli:
     candidate=Path.home()/'AppData/Local/Aside/CLI/current/aside.exe'
