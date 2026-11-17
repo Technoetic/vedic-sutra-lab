@@ -1,0 +1,18 @@
+{
+  "task_id": "vedic-sutra-tutorial-20261117",
+  "buildId": "sutra-0e8ab1129daa",
+  "artifact_paths": ["src/", "data/sutras.json", "public/cards/", "dist/", "docs/verification/"],
+  "verification_commands_and_results": {
+    "node_tests": "npm test: 76/76 PASS; meaningful RED/GREEN observed for domain, service, navigation-race, HTML-build-identity and browser-fetch receiver regressions",
+    "independent_math": "38,922 control combinations; all expected invalid domains excluded, no NaN/undefined/Infinity; direct arithmetic and diagram checks PASS",
+    "actual_browser_functional": "Aside: all16 numeric controls, diagrams, steps, save/reopen, card decode/focus PASS",
+    "actual_browser_responsive": "Aside same-origin iframe: home +16 lessons at320/390/768/1440 =68 screen cases, no horizontal overflow, controls font>=16 and touch height>=44",
+    "actual_browser_updates": "7 PASS cases: openA-to-B next clean full-document target, rollback, dirty protection, save then document, startup identity, focus handler advisory then full navigation",
+    "actual_browser_resilience": "16 PASS cases: skip link, duplicate route, dirtyBack+Forward preservation, deep link/reload, version offline/invalid, data-only freshness, course HTTP error/retry, delayed local save, edit during check, failed-save draft preservation, real404 and cache headers, no runtime errors",
+    "build": "npm run build: PASS; HTML/version/import graph and27 current hashed assets independently verified"
+  },
+  "assumptions": ["User selected free exploration, not sequenced quiz or timed game", "No third-party runtime packages or external API", "Local-only delivery; Sites registration/save/deployment and remote publishing not performed", "Browser-local explicit saving; no cross-device synchronization", "Hash routing for future subpath hosting; external CDN policies need target-specific verification"],
+  "unresolved": ["Native BFCache restoration untested; explicit focus lifecycle handler exercised", "No external hosting/CDN deployment in this task", "Aside CDP screenshot capture timed out; actual DOM interaction and layout verification passed; no captured screenshot visual review claimed"],
+  "next_safe_action": "User can use localhost8796; any later GitHub Pages publication follows a new explicit user request",
+  "verified_by": ["Codex independent subagent /root/sutra_review: source, arithmetic, state models, unit tests, build graph", "Codex /root/sutra_design: actual Aside functional and68 responsive screens", "Codex root: actual Aside A/B document transitions, rollback, dirty/save/history/error acceptance"]
+}

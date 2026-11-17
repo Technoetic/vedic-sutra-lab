@@ -1,0 +1,97 @@
+{
+  "status": "PASS",
+  "results": [
+    {
+      "check": "skip-link-keeps-route-and-focuses-main",
+      "pass": true
+    },
+    {
+      "check": "same-screen-does-not-create-history-entries",
+      "pass": true
+    },
+    {
+      "check": "dirty-Back-restores-original-entry-and-input",
+      "pass": true,
+      "tracked": 2,
+      "state": 2
+    },
+    {
+      "check": "discarded-Back-preserves-Forward-entry",
+      "pass": true
+    },
+    {
+      "check": "deep-link-normal-refresh",
+      "pass": true,
+      "hash": "#/sutra/13",
+      "token": "b607b178-2373-4d03-aa70-56f593db8f00"
+    },
+    {
+      "check": "version-network-failure-keeps-app-usable",
+      "pass": true,
+      "screen": "about",
+      "token": "b607b178-2373-4d03-aa70-56f593db8f00"
+    },
+    {
+      "check": "invalid-version-response-keeps-app-usable",
+      "pass": true,
+      "screen": "home",
+      "token": "b607b178-2373-4d03-aa70-56f593db8f00"
+    },
+    {
+      "check": "fresh-data-without-document-reload",
+      "pass": true,
+      "token": "b607b178-2373-4d03-aa70-56f593db8f00",
+      "title": "5로 끝나면, 앞부분 × 다음 수 · 새 자료1"
+    },
+    {
+      "check": "course-error-has-retry",
+      "pass": true
+    },
+    {
+      "check": "course-retry-recovers",
+      "pass": true
+    },
+    {
+      "check": "save-in-flight-blocks-update-navigation",
+      "pass": true,
+      "build": "qa-A",
+      "saving": true,
+      "value": 4,
+      "hash": "#/sutra/01",
+      "adapter": "Delayed local-storage persistence adapter, 400ms"
+    },
+    {
+      "check": "completed-save-allows-next-update",
+      "pass": true
+    },
+    {
+      "check": "editing-during-version-check-is-rechecked",
+      "pass": true,
+      "build": "qa-B",
+      "hash": "#/sutra/02",
+      "value": 359
+    },
+    {
+      "check": "failed-save-keeps-draft-and-blocks-update",
+      "pass": true,
+      "build": "qa-A",
+      "value": 24,
+      "dirty": true,
+      "error": "Simulated quota failure",
+      "hash": "#/sutra/03"
+    },
+    {
+      "check": "real-404s-and-cache-headers",
+      "pass": true,
+      "asset": 404,
+      "api": 404,
+      "htmlCache": "no-cache",
+      "versionCache": "no-store"
+    },
+    {
+      "check": "runtime-errors",
+      "pass": true,
+      "errors": []
+    }
+  ]
+}

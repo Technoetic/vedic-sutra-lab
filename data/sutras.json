@@ -1,0 +1,276 @@
+[
+  {
+    "id": "01",
+    "name": "에카디케나 푸르베나",
+    "title": "5로 끝나면, 앞부분 × 다음 수",
+    "summary": "끝자리 5를 떼어 앞부분과 다음 수를 곱하고, 뒤에 25를 붙여 제곱을 구해요.",
+    "category": "기초",
+    "tags": ["제곱", "자리값", "5로 끝나는 수"],
+    "tip": "앞부분을 바꿔도 맨 뒤의 두 자리 25는 그대로예요.",
+    "condition": "5로 끝나는 양의 정수에 적용합니다. 이 탐색실에서는 앞부분이 1~99인 수를 다룹니다.",
+    "defaults": { "a": 3 },
+    "controls": [{ "key": "a", "label": "앞부분", "type": "range", "min": 1, "max": 99, "step": 1 }],
+    "visual": "concat",
+    "sourceUrl": "https://vedicmaths.org/introduction/history/vedic-mathematics-book-index",
+    "cardPath": "cards/card-01.webp"
+  },
+  {
+    "id": "02",
+    "name": "니킬람 나바타슈차라맘 다샤타하",
+    "title": "앞자리는 9에서, 끝자리는 10에서",
+    "summary": "1000까지 모자란 양을 세 자리의 보수로 구해요. 앞의 0도 자리값에 포함해요.",
+    "category": "기초",
+    "tags": ["뺄셈", "보수", "자리값"],
+    "tip": "7을 넣으면 007의 세 자리를 기준으로 993이 나와요.",
+    "condition": "1~999 중 마지막 자리가 0이 아닌 수에 사용하는 직접 계산입니다. 끝자리 0은 이 도식의 적용 범위 밖입니다.",
+    "defaults": { "n": 357 },
+    "controls": [{ "key": "n", "label": "1000에서 뺄 수", "type": "number", "min": 1, "max": 999, "step": 1 }],
+    "visual": "complement",
+    "sourceUrl": "https://vedicmaths.org/introduction/history/vedic-mathematics-book-index",
+    "cardPath": "cards/card-02.webp"
+  },
+  {
+    "id": "03",
+    "name": "우르드바 티리야그비얌",
+    "title": "세로로 곱하고, 대각선끼리 더해요",
+    "summary": "두 자리 곱셈을 일의 자리, 대각선, 앞자리 순서로 풀고 올림까지 확인해요.",
+    "category": "기초",
+    "tags": ["곱셈", "자리올림", "교차곱"],
+    "tip": "99 × 99처럼 큰 수를 넣어 두 번의 자리올림을 살펴보세요.",
+    "condition": "10~99인 두 정수의 곱셈입니다. 각 단계에서 생긴 올림을 다음 자리에 반드시 더합니다.",
+    "defaults": { "a": 23, "b": 12 },
+    "controls": [
+      { "key": "a", "label": "첫 번째 수", "type": "range", "min": 10, "max": 99, "step": 1 },
+      { "key": "b", "label": "두 번째 수", "type": "range", "min": 10, "max": 99, "step": 1 }
+    ],
+    "visual": "cross",
+    "sourceUrl": "https://vedicmaths.org/introduction/history/vedic-mathematics-book-index",
+    "cardPath": "cards/card-03.webp"
+  },
+  {
+    "id": "04",
+    "name": "파라바르티야 요자예트",
+    "title": "같은 계산을 양쪽에 해요",
+    "summary": "저울의 균형을 유지하며 더한 수를 빼고, 계수로 나누어 x를 혼자 남겨요.",
+    "category": "기초",
+    "tags": ["방정식", "이항", "분수"],
+    "tip": "나누어떨어지지 않는 값을 넣어도 해를 정확한 분수로 볼 수 있어요.",
+    "condition": "kx + c = r 형태이며 k는 1~9입니다. 양쪽에 같은 연산을 하고 0이 아닌 k로 나눕니다.",
+    "defaults": { "k": 3, "c": 5, "r": 20 },
+    "controls": [
+      { "key": "k", "label": "x의 계수", "type": "range", "min": 1, "max": 9, "step": 1 },
+      { "key": "c", "label": "더하는 수", "type": "range", "min": 0, "max": 20, "step": 1 },
+      { "key": "r", "label": "오른쪽 값", "type": "range", "min": 1, "max": 100, "step": 1 }
+    ],
+    "visual": "balance",
+    "sourceUrl": "https://vedicmaths.org/introduction/history/vedic-mathematics-book-index",
+    "cardPath": "cards/card-04.webp"
+  },
+  {
+    "id": "05",
+    "name": "슈니얌 사먀사무차예",
+    "title": "같은 묶음이 남으면, 그 묶음은 0",
+    "summary": "서로 다른 개수의 같은 묶음이 같아지려면 묶음의 값이 0이어야 해요.",
+    "category": "응용",
+    "tags": ["방정식", "공통인수", "적용 조건"],
+    "tip": "앞의 두 계수를 같게 하면 왜 한 가지 해를 정할 수 없을까요?",
+    "condition": "a(x + c) = b(x + c)에서 a와 b가 달라야 합니다. 이 수트라의 공통인수 해석을 보여 주는 제한된 형태입니다.",
+    "defaults": { "a": 9, "b": 7, "c": 1 },
+    "controls": [
+      { "key": "a", "label": "왼쪽 계수", "type": "range", "min": -9, "max": 9, "step": 1 },
+      { "key": "b", "label": "오른쪽 계수", "type": "range", "min": -9, "max": 9, "step": 1 },
+      { "key": "c", "label": "묶음 안의 수", "type": "range", "min": -9, "max": 9, "step": 1 }
+    ],
+    "visual": "balance",
+    "sourceUrl": "https://www.ms.uky.edu/~sohum/ma330/files/manuscripts/Tirthaji_S.B.K.%2C_Agarwala_V.S.-Vedic_mathematics_or_sixteen_simple_mathematical_formulae_from_the_Vedas-Orient_Book_Distributors_1981.pdf#page=82",
+    "cardPath": "cards/card-05.webp"
+  },
+  {
+    "id": "06",
+    "name": "아누루피예 슈니야마니야트",
+    "title": "한쪽 비율이 같으면, 다른 쪽은 0",
+    "summary": "두 방정식에서 x 계수와 오른쪽 값의 비율을 맞추면 y만 남길 수 있어요.",
+    "category": "응용",
+    "tags": ["연립방정식", "비율", "소거"],
+    "tip": "비교 배수가 2일 때 y 계수를 6으로 바꾸면 두 식이 완전히 같아져요.",
+    "condition": "2x + 3y = 6과 2kx + qy = 6k를 다룹니다. q ≠ 3k여야 유일한 해를 구할 수 있습니다.",
+    "defaults": { "k": 2, "q": 9 },
+    "controls": [
+      { "key": "k", "label": "비교 배수", "type": "range", "min": 1, "max": 4, "step": 1 },
+      { "key": "q", "label": "두 번째 식의 y 계수", "type": "range", "min": 1, "max": 20, "step": 1 }
+    ],
+    "visual": "balance",
+    "sourceUrl": "https://vedicmaths.org/introduction/history/vedic-mathematics-book-index",
+    "cardPath": "cards/card-06.webp"
+  },
+  {
+    "id": "07",
+    "name": "산칼라나 비야바칼라나비얌",
+    "title": "더하고 빼면, 숨은 수가 보여요",
+    "summary": "두 수의 합과 차이를 알면 식을 더하고 빼서 각각의 수를 찾을 수 있어요.",
+    "category": "기초",
+    "tags": ["연립방정식", "덧셈", "뺄셈"],
+    "tip": "합과 차이의 홀짝이 다르면 해가 반 정수로 나와요.",
+    "condition": "x + y = s, x − y = d 형태입니다. 이 탐색실에서는 합과 차이를 각각 −20~20의 정수로 바꿉니다.",
+    "defaults": { "s": 10, "d": 2 },
+    "controls": [
+      { "key": "s", "label": "두 수의 합", "type": "range", "min": -20, "max": 20, "step": 1 },
+      { "key": "d", "label": "두 수의 차", "type": "range", "min": -20, "max": 20, "step": 1 }
+    ],
+    "visual": "balance",
+    "sourceUrl": "https://vedicmaths.org/introduction/history/vedic-mathematics-book-index",
+    "cardPath": "cards/card-07.webp"
+  },
+  {
+    "id": "08",
+    "name": "푸라나푸라나비얌",
+    "title": "빈 모서리를 채워, 정사각형으로",
+    "summary": "x²와 두 띠를 정사각형으로 완성하며 이차방정식의 두 해를 찾아요.",
+    "category": "응용",
+    "tags": ["완전제곱", "이차방정식", "넓이"],
+    "tip": "띠의 폭을 제곱한 만큼 양쪽에 똑같이 더해야 등식이 유지돼요.",
+    "condition": "x² + 2px = q, p와 q가 양수인 형태입니다. 그림은 양수인 해를 나타내며 식의 두 근은 모두 포함합니다.",
+    "defaults": { "p": 3, "q": 7 },
+    "controls": [
+      { "key": "p", "label": "두 띠 각각의 폭", "type": "range", "min": 1, "max": 6, "step": 1 },
+      { "key": "q", "label": "오른쪽 값", "type": "range", "min": 1, "max": 72, "step": 1 }
+    ],
+    "visual": "square",
+    "sourceUrl": "https://vedicmaths.org/introduction/history/vedic-mathematics-book-index",
+    "cardPath": "cards/card-08.webp"
+  },
+  {
+    "id": "09",
+    "name": "찰라나 칼라나비얌",
+    "title": "아주 조금 변할 때의 속도를 봐요",
+    "summary": "제곱 함수에서 변화 폭을 줄이며 구간 변화율이 순간 변화율에 가까워지는 모습을 봐요.",
+    "category": "심화",
+    "tags": ["미분", "변화율", "극한"],
+    "tip": "h를 1에서 0.01로 줄이며 두 변화율의 차이를 살펴보세요.",
+    "condition": "f(x) = x²의 기본 미분 예시입니다. h는 0보다 커야 나눌 수 있고, 순간 변화율은 h → 0의 극한입니다.",
+    "defaults": { "x": 3, "h": 0.1 },
+    "controls": [
+      { "key": "x", "label": "출발점 x", "type": "range", "min": 1, "max": 8, "step": 1 },
+      { "key": "h", "label": "변화 폭 h", "type": "range", "min": 0.01, "max": 1, "step": 0.01 }
+    ],
+    "visual": "growth",
+    "sourceUrl": "https://www.ms.uky.edu/~sohum/ma330/files/manuscripts/Tirthaji_S.B.K.%2C_Agarwala_V.S.-Vedic_mathematics_or_sixteen_simple_mathematical_formulae_from_the_Vedas-Orient_Book_Distributors_1981.pdf#page=121",
+    "cardPath": "cards/card-09.webp"
+  },
+  {
+    "id": "10",
+    "name": "야바두남",
+    "title": "100보다 모자란 만큼 한 번 더 빼요",
+    "summary": "100에 가까운 수는 모자란 양을 이용해 제곱을 앞부분과 두 자리 뒷부분으로 나눠요.",
+    "category": "기초",
+    "tags": ["제곱", "보수", "100 근처"],
+    "tip": "모자란 양이 1일 때 뒷부분은 1이 아니라 두 자리 01로 써요.",
+    "condition": "기준은 100이며 이 탐색실은 91~99의 제곱을 다룹니다. 모자란 양의 제곱이 두 자리를 넘지 않는 범위입니다.",
+    "defaults": { "d": 4 },
+    "controls": [{ "key": "d", "label": "100에서 모자란 양", "type": "range", "min": 1, "max": 9, "step": 1 }],
+    "visual": "concat",
+    "sourceUrl": "https://vedicmaths.org/introduction/history/vedic-mathematics-book-index",
+    "cardPath": "cards/card-10.webp"
+  },
+  {
+    "id": "11",
+    "name": "비야슈티사마슈티히",
+    "title": "가운데를 잡으면, 양쪽이 단순해져요",
+    "summary": "가운데에서 같은 거리만큼 떨어진 두 수의 제곱을 더하면 반대 부호의 항이 없어져요.",
+    "category": "응용",
+    "tags": ["대칭", "전개", "교육용 확장"],
+    "tip": "가운데 수와 간격을 각각 바꾸며 2x² + 2d²가 유지되는지 보세요.",
+    "condition": "(x + d)² + (x − d)² = 2x² + 2d²를 다루는 교육용 확장입니다. 원전 문제의 직접 재현으로 제시하지 않습니다.",
+    "defaults": { "x": 3, "gap": 1 },
+    "controls": [
+      { "key": "x", "label": "가운데 수", "type": "range", "min": 1, "max": 20, "step": 1 },
+      { "key": "gap", "label": "양쪽 간격", "type": "range", "min": 1, "max": 5, "step": 1 }
+    ],
+    "visual": "symmetric",
+    "sourceUrl": "https://vedicmaths.org/introduction/history/vedic-mathematics-book-index",
+    "cardPath": "cards/card-11.webp"
+  },
+  {
+    "id": "12",
+    "name": "셰샤니얀케나 차라메나",
+    "title": "나머지와 끝자리로 소수를 복원해요",
+    "summary": "몫 한 자리를 얻은 직후의 나머지에 순환마디 끝자리를 곱해 소수의 자릿수를 다시 읽어요.",
+    "category": "응용",
+    "tags": ["순환소수", "나머지", "긴 나눗셈"],
+    "tip": "1/19는 순환마디 끝자리가 1이고 분모 끝자리는 9예요. 둘을 구별해 보세요.",
+    "condition": "검증된 1/7, 1/13, 1/19를 다룹니다. 곱하는 숫자는 분모가 아니라 순환하는 답의 마지막 숫자입니다.",
+    "defaults": { "denominator": 7 },
+    "controls": [{ "key": "denominator", "label": "살펴볼 분수", "type": "select", "options": [{ "value": 7, "label": "1/7" }, { "value": 13, "label": "1/13" }, { "value": 19, "label": "1/19" }] }],
+    "visual": "remainders",
+    "sourceUrl": "https://www.ms.uky.edu/~sohum/ma330/files/manuscripts/Tirthaji_S.B.K.%2C_Agarwala_V.S.-Vedic_mathematics_or_sixteen_simple_mathematical_formulae_from_the_Vedas-Orient_Book_Distributors_1981.pdf#page=129",
+    "cardPath": "cards/card-12.webp"
+  },
+  {
+    "id": "13",
+    "name": "소판티야드바야만티얌",
+    "title": "끝 항 + 바로 앞 항의 두 배",
+    "summary": "등차로 놓인 네 식의 특별한 분수 방정식을 마지막 두 항의 관계로 줄여 풀어요.",
+    "category": "심화",
+    "tags": ["분수 방정식", "등차수열", "적용 조건"],
+    "tip": "공차를 바꿀 때 해와 네 항이 같은 비율로 변하는지 살펴보세요.",
+    "condition": "A = x − 3d, B = x − 2d, C = x − d, D = x이며 d ≠ 0, ABCD ≠ 0이어야 합니다. 표시한 분수식의 배치와 부호에서만 사용합니다.",
+    "defaults": { "delta": 1 },
+    "controls": [{ "key": "delta", "label": "네 항 사이의 공차", "type": "range", "min": 1, "max": 5, "step": 1 }],
+    "visual": "progression",
+    "sourceUrl": "https://www.ms.uky.edu/~sohum/ma330/files/manuscripts/Tirthaji_S.B.K.%2C_Agarwala_V.S.-Vedic_mathematics_or_sixteen_simple_mathematical_formulae_from_the_Vedas-Orient_Book_Distributors_1981.pdf#page=102",
+    "cardPath": "cards/card-13.webp"
+  },
+  {
+    "id": "14",
+    "name": "에카니유네나 푸르베나",
+    "title": "99를 곱할 땐, 100배에서 빼요",
+    "summary": "99는 100보다 하나 작다는 성질로 앞부분과 두 자리 뒷부분을 바로 구해요.",
+    "category": "기초",
+    "tags": ["곱셈", "99", "자리값"],
+    "tip": "1과 100을 넣어 붙이기 규칙의 양 끝도 확인해 보세요.",
+    "condition": "곱하는 수 n이 1~100일 때입니다. 앞부분은 n − 1, 뒷부분은 100 − n을 항상 두 자리로 씁니다.",
+    "defaults": { "n": 27 },
+    "controls": [{ "key": "n", "label": "99를 곱할 수", "type": "range", "min": 1, "max": 100, "step": 1 }],
+    "visual": "concat",
+    "sourceUrl": "https://vedicmaths.org/introduction/history/vedic-mathematics-book-index",
+    "cardPath": "cards/card-14.webp"
+  },
+  {
+    "id": "15",
+    "name": "구니타사무차야하",
+    "title": "계수의 합으로, 곱셈을 점검해요",
+    "summary": "x = 1을 넣어 전개식의 계수합을 점검하고, 틀린 식도 통과할 수 있는 한계를 실험해요.",
+    "category": "응용",
+    "tags": ["검산", "계수합", "반례"],
+    "tip": "‘합은 같은 오류’를 선택하면 x = 1에서는 통과하지만 x = 2에서 어긋나요.",
+    "condition": "두 다항식이 같다면 x = 1에서의 값도 같습니다. 역은 성립하지 않으며 계수합 점검은 등식 전체의 증명이 아닙니다.",
+    "defaults": { "a": 2, "b": 3, "mode": "correct" },
+    "controls": [
+      { "key": "a", "label": "첫 번째 인수의 상수", "type": "range", "min": 1, "max": 9, "step": 1 },
+      { "key": "b", "label": "두 번째 인수의 상수", "type": "range", "min": 1, "max": 9, "step": 1 },
+      { "key": "mode", "label": "비교할 전개식", "type": "select", "options": [{ "value": "correct", "label": "정확한 전개" }, { "value": "wrong", "label": "합이 다른 오류" }, { "value": "sameSumError", "label": "합은 같은 오류" }] }
+    ],
+    "visual": "check",
+    "sourceUrl": "https://vedicmaths.org/introduction/history/vedic-mathematics-book-index",
+    "cardPath": "cards/card-15.webp"
+  },
+  {
+    "id": "16",
+    "name": "구나카사무차야하",
+    "title": "곱의 순간 변화는, 두 변의 합",
+    "summary": "직사각형의 두 변이 같은 속도로 늘어날 때 넓이의 순간 변화율을 두 변의 합으로 읽어요.",
+    "category": "심화",
+    "tags": ["미분", "곱의 미분", "넓이"],
+    "tip": "순간 변화율과 x가 1 늘 때의 넓이 차이는 1만큼 달라요.",
+    "condition": "f(x) = (x + a)(x + b)처럼 각 인수의 x 계수가 1인 경우입니다. 일반적으로는 (uv)′ = u′v + uv′를 씁니다.",
+    "defaults": { "a": 2, "b": 3, "x": 1 },
+    "controls": [
+      { "key": "a", "label": "가로에 더하는 수", "type": "range", "min": 1, "max": 8, "step": 1 },
+      { "key": "b", "label": "세로에 더하는 수", "type": "range", "min": 1, "max": 8, "step": 1 },
+      { "key": "x", "label": "출발점 x", "type": "range", "min": 1, "max": 8, "step": 1 }
+    ],
+    "visual": "rectangle",
+    "sourceUrl": "https://www.ms.uky.edu/~sohum/ma330/files/manuscripts/Tirthaji_S.B.K.%2C_Agarwala_V.S.-Vedic_mathematics_or_sixteen_simple_mathematical_formulae_from_the_Vedas-Orient_Book_Distributors_1981.pdf#page=120",
+    "cardPath": "cards/card-16.webp"
+  }
+]

@@ -1,0 +1,263 @@
+{
+  "status": "PASS",
+  "build": "sutra-0e8ab1129daa",
+  "hero": {
+    "before": "1225",
+    "after": "4225"
+  },
+  "lessons": [
+    {
+      "id": "01",
+      "kind": "concat",
+      "chosen": {
+        "control": "a",
+        "value": 99
+      },
+      "equationChanged": true,
+      "resultChanged": true,
+      "diagramChanged": true,
+      "stepCount": 3,
+      "saved": true,
+      "reopened": true
+    },
+    {
+      "id": "02",
+      "kind": "complement",
+      "chosen": {
+        "control": "n",
+        "value": 999
+      },
+      "equationChanged": true,
+      "resultChanged": true,
+      "diagramChanged": true,
+      "stepCount": 4,
+      "saved": true,
+      "reopened": true
+    },
+    {
+      "id": "03",
+      "kind": "cross",
+      "chosen": {
+        "control": "b",
+        "value": 99
+      },
+      "equationChanged": true,
+      "resultChanged": true,
+      "diagramChanged": true,
+      "stepCount": 5,
+      "saved": true,
+      "reopened": true
+    },
+    {
+      "id": "04",
+      "kind": "balance",
+      "chosen": {
+        "control": "r",
+        "value": 100
+      },
+      "equationChanged": true,
+      "resultChanged": true,
+      "diagramChanged": true,
+      "stepCount": 3,
+      "saved": true,
+      "reopened": true
+    },
+    {
+      "id": "05",
+      "kind": "balance",
+      "chosen": {
+        "control": "c",
+        "value": 9
+      },
+      "equationChanged": true,
+      "resultChanged": true,
+      "diagramChanged": true,
+      "stepCount": 3,
+      "saved": true,
+      "reopened": true
+    },
+    {
+      "id": "06",
+      "kind": "balance",
+      "chosen": {
+        "control": "q",
+        "value": 20
+      },
+      "equationChanged": true,
+      "resultChanged": false,
+      "diagramChanged": true,
+      "stepCount": 3,
+      "saved": true,
+      "reopened": true
+    },
+    {
+      "id": "07",
+      "kind": "balance",
+      "chosen": {
+        "control": "d",
+        "value": 20
+      },
+      "equationChanged": true,
+      "resultChanged": true,
+      "diagramChanged": true,
+      "stepCount": 3,
+      "saved": true,
+      "reopened": true
+    },
+    {
+      "id": "08",
+      "kind": "square",
+      "chosen": {
+        "control": "q",
+        "value": 72
+      },
+      "equationChanged": true,
+      "resultChanged": true,
+      "diagramChanged": true,
+      "stepCount": 5,
+      "saved": true,
+      "reopened": true
+    },
+    {
+      "id": "09",
+      "kind": "growth",
+      "chosen": {
+        "control": "h",
+        "value": 1
+      },
+      "equationChanged": true,
+      "resultChanged": true,
+      "diagramChanged": true,
+      "stepCount": 4,
+      "saved": true,
+      "reopened": true
+    },
+    {
+      "id": "10",
+      "kind": "concat",
+      "chosen": {
+        "control": "d",
+        "value": 9
+      },
+      "equationChanged": true,
+      "resultChanged": true,
+      "diagramChanged": true,
+      "stepCount": 4,
+      "saved": true,
+      "reopened": true
+    },
+    {
+      "id": "11",
+      "kind": "symmetric",
+      "chosen": {
+        "control": "gap",
+        "value": 5
+      },
+      "equationChanged": true,
+      "resultChanged": true,
+      "diagramChanged": true,
+      "stepCount": 4,
+      "saved": true,
+      "reopened": true
+    },
+    {
+      "id": "12",
+      "kind": "remainders",
+      "chosen": {
+        "control": "denominator",
+        "value": 13
+      },
+      "equationChanged": true,
+      "resultChanged": true,
+      "diagramChanged": true,
+      "stepCount": 4,
+      "saved": true,
+      "reopened": true
+    },
+    {
+      "id": "13",
+      "kind": "progression",
+      "chosen": {
+        "control": "delta",
+        "value": 5
+      },
+      "equationChanged": false,
+      "resultChanged": true,
+      "diagramChanged": true,
+      "stepCount": 5,
+      "saved": true,
+      "reopened": true
+    },
+    {
+      "id": "14",
+      "kind": "concat",
+      "chosen": {
+        "control": "n",
+        "value": 100
+      },
+      "equationChanged": true,
+      "resultChanged": true,
+      "diagramChanged": true,
+      "stepCount": 4,
+      "saved": true,
+      "reopened": true
+    },
+    {
+      "id": "15",
+      "kind": "check",
+      "chosen": {
+        "control": "mode",
+        "value": "wrong"
+      },
+      "equationChanged": true,
+      "resultChanged": true,
+      "diagramChanged": true,
+      "stepCount": 4,
+      "saved": true,
+      "reopened": true
+    },
+    {
+      "id": "16",
+      "kind": "rectangle",
+      "chosen": {
+        "control": "x",
+        "value": 8
+      },
+      "equationChanged": true,
+      "resultChanged": true,
+      "diagramChanged": true,
+      "stepCount": 4,
+      "saved": true,
+      "reopened": true
+    }
+  ],
+  "selectRegression": {
+    "dirtyAt13": true,
+    "cleanAt7": true,
+    "cleanAfterReset": true,
+    "value": 7
+  },
+  "check": {
+    "matchAt1": true,
+    "mismatchAt2": true,
+    "warning": "계수합이 같다는 것은 필요한 조건입니다. 식 전체가 같다는 증명은 아닙니다."
+  },
+  "fractions": [
+    "−35/3",
+    "−20/3",
+    "−5/3",
+    "10/3"
+  ],
+  "card": {
+    "opened": true,
+    "decoded": true,
+    "width": 800,
+    "height": 1200,
+    "decodeError": null,
+    "closeFocused": true,
+    "closed": true,
+    "focusReturned": true
+  },
+  "failures": [],
+  "restoredStorage": true
+}

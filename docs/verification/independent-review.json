@@ -1,0 +1,167 @@
+{
+  "task_id": "sutra-independent-review-2026-11-17",
+  "status": "PASS_CODE_UNIT_MODEL_BUILD_BROWSER_PENDING",
+  "artifact_paths": [
+    "D:/vedic-sutra-lab/test-results/independent-review.json",
+    "D:/vedic-sutra-lab/dist/index.html",
+    "D:/vedic-sutra-lab/dist/version.json",
+    "D:/vedic-sutra-lab/src",
+    "D:/vedic-sutra-lab/data/sutras.json",
+    "D:/vedic-sutra-lab/scripts",
+    "D:/vedic-sutra-lab/tests"
+  ],
+  "verification_commands_and_results": [
+    {
+      "command": "npm test",
+      "result": "PASS",
+      "exit_code": 0,
+      "tests": 76,
+      "passed": 76,
+      "failed": 0,
+      "scope": "Final source unit/regression suite, independently rerun after source freeze."
+    },
+    {
+      "command": "npm run build",
+      "result": "PASS",
+      "exit_code": 0,
+      "buildId": "sutra-0e8ab1129daa",
+      "modules": 10,
+      "cards": 16,
+      "out": "D:/vedic-sutra-lab/dist"
+    },
+    {
+      "command": "PowerShell here-string | node --input-type=module",
+      "procedure": "Exhaustively enumerate every permitted catalog control combination; evaluateSutra and renderDiagram must not throw or produce NaN/Infinity/undefined. Only lesson 02 last digit 0, lesson 05 equal coefficients, and lesson 06 dependent equations may be invalid. Independently compare lesson 01/02/03/10/11/14 answers with direct arithmetic.",
+      "result": "PASS",
+      "input_combinations": 38922
+    },
+    {
+      "command": "PowerShell here-string | node --input-type=module",
+      "procedure": "Run actual exported SutraApp against an in-memory history model containing existing duplicate-hash entries. Assert same-hash index synchronization, same-route no duplicate push, dirty Back restoration, pending Back resumption and retained Forward.",
+      "result": "PASS",
+      "asserted_cases": 5,
+      "limitation": "Model execution; no claim of a real browser history pass."
+    },
+    {
+      "command": "PowerShell here-string | node --input-type=module",
+      "procedure": "Read final built HTML/version/catalog; assert embedded build identity matches version.json; recursively follow emitted module imports; independently recompute all JS/CSS/card filename hashes; assert all 16 cards exist and template placeholders are resolved.",
+      "result": "PASS",
+      "buildId": "sutra-0e8ab1129daa",
+      "checked_files": 27,
+      "modules": 10,
+      "cards": 16
+    },
+    {
+      "command": "Read-only source audit",
+      "procedure": "Read docs/design.md, requested webapp6 skill and current canonical six-rule guide; inspect app/screens/services/math/diagrams/catalog/build/server/tests/CSS/template.",
+      "result": "PASS_WITH_BROWSER_LIMITS"
+    }
+  ],
+  "assumptions": [
+    "No source files were edited by the independent reviewer; only this ignored review artifact was authored. Requested test/build commands produced their ordinary ignored outputs.",
+    "The root agent owns actual Aside browser acceptance and responsive visual checks; this reviewer did not create or automate a browser instance.",
+    "Local hash routing is the selected architecture. No deployment, Sites creation, source push or hosting change was requested or performed.",
+    "Mathematical examples are intentionally bounded by the catalog. Lessons 09/13/16 are advanced, 11 is an educational extension, and 15 is a limited check rather than an identity proof.",
+    "Default build identity is content-derived and includes HTML, JS, CSS and catalog/card identities; any explicit BUILD_ID override is the caller's responsibility."
+  ],
+  "findings": [
+    {
+      "id": "R1",
+      "status": "fixed_and_verified",
+      "files": [
+        "src/js/app.js",
+        "tests/app-races.test.mjs"
+      ],
+      "finding": "An older delayed version response could commit a full-document destination after a newer user navigation, and an older dirty notification could overwrite the pending target.",
+      "evidence": "Initial independent deferred-fetch repro committed 02 then 01. Final npm test confirms only latest commit/notify is accepted."
+    },
+    {
+      "id": "R2",
+      "status": "fixed_source_review_browser_pending",
+      "files": [
+        "index.template.html",
+        "src/js/app.js"
+      ],
+      "finding": "The #app skip link entered the hash router and rendered the 404 screen.",
+      "evidence": "Final document click handler intercepts the skip link, focuses/scrolls main, and preserves the route. Actual browser keyboard activation remains root acceptance."
+    },
+    {
+      "id": "R3",
+      "status": "fixed_model_verified_browser_pending",
+      "files": [
+        "src/js/app.js"
+      ],
+      "finding": "Blocking dirty Back used replaceState on the prior entry, destroying its original route; resuming used a new push and lost Forward semantics.",
+      "evidence": "Final indexed history.go restoration/resumption passed five independent model assertions. Actual browser history remains root acceptance."
+    },
+    {
+      "id": "R4",
+      "status": "fixed_and_verified",
+      "files": [
+        "scripts/build.mjs",
+        "tests/build.test.mjs"
+      ],
+      "finding": "HTML-only changes were excluded from the automatic build identity.",
+      "evidence": "Final build hashes the HTML template; independent final suite passes stable-input and changed-HTML identity regression."
+    },
+    {
+      "id": "R5",
+      "status": "fixed_source_reviewed",
+      "files": [
+        "src/js/screens/LessonScreen.js"
+      ],
+      "finding": "Numeric select values changed to strings, causing false dirty state after returning lesson 12 to the original denominator.",
+      "evidence": "Final select handler restores the option value type from the catalog."
+    },
+    {
+      "id": "R6",
+      "status": "fixed_model_verified_browser_pending",
+      "files": [
+        "src/js/app.js"
+      ],
+      "finding": "The first history fix skipped index updates when traversing an older duplicate-hash entry, leaving tracked position inconsistent and later dirty restoration out of range.",
+      "evidence": "Independent initial state-model repro observed actualIndex 1 versus trackedIndex 2 and URL 01 versus screen 02. Final model verifies index synchronization and no duplicate pushes."
+    }
+  ],
+  "unresolved": [
+    "Actual Aside browser Back/Forward/dirty navigation, focus and skip-link behavior are root acceptance work; they are not claimed as independently executed here.",
+    "Actual browser A-to-B/rollback/BFCache/save-in-flight/version-failure acceptance and responsive appearance are root acceptance work; unit/model coverage is distinct.",
+    "Deployed host/CDN HTTP cache behavior is untested because no deployment was requested."
+  ],
+  "next_safe_action": "Root should finish actual Aside browser acceptance, review its evidence separately from this independent code/unit/model/build audit, and package the local deliverable. Do not deploy or push.",
+  "verified_by": {
+    "actor": "Codex /root/sutra_review",
+    "independent": true,
+    "verified_at": "2026-11-17T10:30:10.985Z",
+    "result": "76/76 tests, deterministic build, 38,922 arithmetic/diagram inputs, five history-model assertions and 27 emitted-file checks passed. No unresolved substantive source defect found within the audited scope.",
+    "scope": "Read-only source, unit/regression execution, arithmetic/diagram enumeration, history state model and final build artifact integrity; no actual browser or deployed host claim."
+  },
+  "source_sha256": {
+    "data/sutras.json": "1f41dafa6958fefc5fbfc560e09501d452f00470bf9deff58cc59f4bba58f47b",
+    "docs/design.md": "02a66f3bfe7e017f53ac342c0c970a3c35ce866a05539dc64c6a3f29876f9ea3",
+    "index.template.html": "4b69fc6fcbce384ee489f86a47c260cf9c136e191be1c59f1a54e1540899958a",
+    "package.json": "3d4a2ca934d3825f0b7b13b3b2467002021b7f8e69f75087c9d6c3a809cb36db",
+    "scripts/build.mjs": "c2f101f7518a97e3166963456a4067fff66a317dcb08ce1899cfd9afe5212037",
+    "scripts/prepare-cards.py": "fd3bfd4612ecd4d2063667b97ef7cada85246e06d2236fa3a3a7638782945277",
+    "scripts/serve.mjs": "6dcb9315cfbf0b3cbc5ff17e5bc21eb092ea1638e94630a258f0c41068c3ca21",
+    "src/css/base.css": "e7a984ab40c443ddae5731e59d92c157dd8f41558be58fccaadb5dd8ca7094fd",
+    "src/css/components.css": "4122d56670033bca6bb47b5a5765d8d6e50719ff6f01212075cc39347d10b4e3",
+    "src/css/tokens.css": "c3b56b5364963e97500b758ad2d499d15ec6ec0966d4bcea653460f0be7629a9",
+    "src/js/app.js": "ecf7f60468878e9795b6d6b30f2349165c36850e4508de941092c8f8a754fb11",
+    "src/js/domain/math.js": "64a285e6b5f9d14951a7a462dd1a0fd91686cd30974e9c62227306a549c07968",
+    "src/js/screens/AboutScreen.js": "26fff606ad95cd60636898defbe0ce91b81953de329262fe8d1b1c62041b67d9",
+    "src/js/screens/HomeScreen.js": "2c8d94b3e11fd275e497631eb6ef0fc328e7ff0a75259ce65cfe371621d56c7c",
+    "src/js/screens/LessonScreen.js": "e456236c8e6618a676fe6981cbdcb18c7410c92c43305df36188e1d4b6a42378",
+    "src/js/services/CourseService.js": "33585b7ce22be1882b23c61b4b6f8316e8d83daf5d7f7b254883efcbfe4c4a5e",
+    "src/js/services/ProgressService.js": "9a13b1ca650990b37b314e725b043b14630a275b3dbb133c25b89090b0891438",
+    "src/js/services/VersionService.js": "2c49257fc9cf74a0197ae71b6c6c841c5ece98968765fcec9be1fb6df77b56c2",
+    "src/js/shared/utils.js": "b8c9ad56cd88c60cf20a8e17a60dceb369b07ea7259c0dc49e4e148d55f2415c",
+    "src/js/ui/diagrams.js": "b56bf394691074bec78a1694b569bf3f0f330c4d93b0991da34e624b53f94a24",
+    "tests/app-races.test.mjs": "18fa03e14dccb0ad210a25224d62b24d571c9e13873b821f62f589b5edc45171",
+    "tests/build.test.mjs": "194e23038cdc446dee42f75a147626def281fbf5b6b7d3b9d6c3c868136affce",
+    "tests/fetch-binding.test.mjs": "e66a64ec21500e3ae4515f441c9cbfbf4544f0f15cd0f095c2fa2df924958dfd",
+    "tests/math.test.mjs": "86614fc7b404738f3365f85b53938a1b09a83a01a3f91b5639ccc418da086aa6",
+    "tests/navigation.test.mjs": "ad6014fb67b9320008dc9a6111f5ca10395c6e4a64aa380a6aa3225cdb1cc87f",
+    "tests/services.test.mjs": "2596b1eddec7f723e2f3074be102d5552237ac892848e3f343b5514ea499aee7"
+  }
+}

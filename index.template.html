@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f6f5ed">
+  <meta name="description" content="숫자를 바꾸고, 패턴을 발견하세요. 16가지 베다 수학 규칙을 내 속도로 탐색하는 작은 수학 실험실.">
+  <meta name="app-build" content="{{BUILD_ID}}">
+  <title>SUTRA / LAB — 생각의 지름길을 발견하는 곳</title>
+  <link rel="stylesheet" href="{{CSS_URL}}">
+</head>
+<body>
+  <a class="skip-link" href="#app">본문으로 바로 가기</a>
+  <div class="site-shell">
+    <header class="app-header">
+      <a class="brand" data-route href="#/" aria-label="SUTRA LAB 홈">
+        <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true"><path d="M16 1v30M1 16h30M5.4 5.4l21.2 21.2M5.4 26.6L26.6 5.4"/></svg>
+        <span>SUTRA <i>/</i> LAB<span class="brand-dot">.</span></span>
+      </a>
+      <nav class="header-nav" aria-label="주 메뉴">
+        <a class="nav-link" data-route href="#/">규칙 탐색 <span class="nav-count">16</span></a>
+        <a class="nav-link" data-route href="#/about">이 실험실에 대하여 <span aria-hidden="true">↗</span></a>
+      </nav>
+      <span class="header-note">A LITTLE MATH. A NEW PERSPECTIVE.</span>
+    </header>
+    <div id="update-notice" class="update-notice" role="status" hidden></div>
+    <main id="app" tabindex="-1"><div class="loading-state"><span class="loading-mark" aria-hidden="true"></span><p>숫자 속 패턴을 준비하고 있어요.</p></div></main>
+    <footer class="footer"><a class="brand footer-brand" data-route href="#/">SUTRA <i>/</i> LAB<span class="brand-dot">.</span></a><p>숫자는 같아도, 생각하는 길은 다르니까.</p><span>16 SUTRAS · INFINITE DISCOVERIES</span></footer>
+  </div>
+  <div id="status" class="status-message" role="status" aria-live="polite" aria-atomic="true"></div>
+  <div id="modal" class="modal" hidden></div>
+  <script type="module" src="{{JS_URL}}"></script>
+</body>
+</html>

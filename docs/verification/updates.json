@@ -1,0 +1,61 @@
+{
+  "status": "PASS",
+  "results": [
+    {
+      "check": "open-A-to-B-next-clean-navigation",
+      "pass": true,
+      "build": "qa-B",
+      "token": "9b02396a-40e8-4204-a324-0affca876a84",
+      "hash": "#/sutra/01",
+      "errors": []
+    },
+    {
+      "check": "B-to-A-rollback",
+      "pass": true,
+      "build": "qa-A",
+      "token": "798acca9-2b39-4e80-8403-8883465de481",
+      "hash": "#/sutra/05"
+    },
+    {
+      "check": "dirty-input-protected",
+      "pass": true,
+      "build": "qa-A",
+      "token": "798acca9-2b39-4e80-8403-8883465de481",
+      "hash": "#/sutra/05",
+      "dirty": true,
+      "value": 2
+    },
+    {
+      "check": "saved-input-then-intended-document",
+      "pass": true,
+      "build": "qa-B",
+      "token": "97757562-c61c-4a65-877a-003d33c0059a",
+      "hash": "#/sutra/01",
+      "saved": 2
+    },
+    {
+      "check": "A-HTML-before-server-B-version-response",
+      "pass": true,
+      "build": "qa-B",
+      "token": "c5e4c0a1-a8f7-4a42-9ecd-4d1061b4c0d1",
+      "hash": "#/sutra/06"
+    },
+    {
+      "check": "focus-handler-does-not-background-reload",
+      "pass": true,
+      "build": "qa-B",
+      "token": "c5e4c0a1-a8f7-4a42-9ecd-4d1061b4c0d1",
+      "hash": "#/sutra/06",
+      "lifecycle": "Explicit focus event dispatch; native BFCache not claimed"
+    },
+    {
+      "check": "background-detection-then-full-target-navigation",
+      "pass": true,
+      "token": "1f76d650-9d88-4fd3-b8f6-e1d76eed4c1f",
+      "hash": "#/about"
+    }
+  ],
+  "unverified": [
+    "Native BFCache restoration and actual external hosting cache/CDN"
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "status": "PASS",
+  "result": {
+    "screen": "home",
+    "cards": 16,
+    "width": 1440,
+    "overflow": false,
+    "build": "sutra-0e8ab1129daa",
+    "text": "A SMALL SHIFT IN THINKING\n35\n²\n=\n12\n25\n3 × 4 = 12, 뒤에 25를 붙이면\n1225\n5로 끝나는 제곱의 작은 비밀.\n앞부분을 움직여 보세요\n직접 바꿔요\n\nPLAY WITH 5\n01 / EKADHIKENA PURVENA"
+  },
+  "screenshot": null,
+  "screenshotError": "Error: page.screenshot: browser CDP command timed out while capturing clipped screenshot before the default screenshot timeout completed"
+}
